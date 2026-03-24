@@ -1,0 +1,31 @@
+{
+  "name": "@testlock-eng/lint-format-configs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shared lint and format configuration monorepo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/testlock-eng/format-lint.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "release": "semantic-release",
+    "release:dry": "semantic-release --dry-run --no-ci",
+    "test": "echo \"No tests configured\""
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.6",
+    "@semantic-release/npm": "^12.0.2",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "semantic-release": "^24.2.3",
+    "semantic-release-monorepo": "^8.0.2"
+  }
+}
