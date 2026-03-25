@@ -1,5 +1,5 @@
 module.exports = {
-  extends: [require.resolve("@testlock-eng/base/eslint")],
+  extends: [require.resolve("@aleks-thunder/base/eslint")],
   settings: {
     react: {
       version: "detect",

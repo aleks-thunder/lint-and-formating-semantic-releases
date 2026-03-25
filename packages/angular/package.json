@@ -1,5 +1,5 @@
 {
-  "name": "@testlock-eng/angular",
+  "name": "@aleks-thunder/angular",
   "version": "0.0.0-development",
   "description": "Shared Angular lint and format configuration",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "prettier.js"
   ],
   "dependencies": {
-    "@testlock-eng/base": "*"
+    "@aleks-thunder/base": "*"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

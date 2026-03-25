@@ -1,5 +1,5 @@
 module.exports = {
-  ...require("@testlock-eng/base/prettier"),
+  ...require("@aleks-thunder/base/prettier"),
   overrides: [
     {
       files: "*.html",

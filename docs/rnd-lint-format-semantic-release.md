@@ -45,34 +45,34 @@ This dummy repo proves that:
   - Work locally in a monorepo for fast iteration.
   - Do **not** translate well after publishing because `file:../base` points to a path that doesn’t exist in the consumer environment.
 - Real dependency ranges
-  - Ensure that when `@capslock-eng/angular` (or `@capslock-eng/react`) is installed, `@capslock-eng/base` is also installed from the registry.
+  - Ensure that when `@aleks-thunder/angular` (or `@aleks-thunder/react`) is installed, `@aleks-thunder/base` is also installed from the registry.
 
-**Decision for this project:** `@testlock-eng/angular` and `@testlock-eng/react` depend on `@testlock-eng/base` using a portable range (for demo simplicity: `"*"`).
+**Decision for this project:** `@aleks-thunder/angular` and `@aleks-thunder/react` depend on `@aleks-thunder/base` using a portable range (for demo simplicity: `"*"`).
 
 ## Final chosen strategy (applies to this repository)
 
 ### Preset packages and exports
 
-- `@testlock-eng/base`
+- `@aleks-thunder/base`
   - Exposes `eslint.js` and `prettier.js` via `packages/base/package.json` `exports`.
-- `@testlock-eng/angular` and `@testlock-eng/react`
-  - Expose their own `eslint.js` and `prettier.js` (and extend `@testlock-eng/base` presets).
+- `@aleks-thunder/angular` and `@aleks-thunder/react`
+  - Expose their own `eslint.js` and `prettier.js` (and extend `@aleks-thunder/base` presets).
 
 ### Dependency model
 
-- `@testlock-eng/base`:
+- `@aleks-thunder/base`:
   - uses `dependencies` for `eslint` and `prettier`.
-- `@testlock-eng/angular` and `@testlock-eng/react`:
-  - depend on `@testlock-eng/base` with a portable semver range (demo: `"*"`).
+- `@aleks-thunder/angular` and `@aleks-thunder/react`:
+  - depend on `@aleks-thunder/base` with a portable semver range (demo: `"*"`).
   - do not require the consumer to separately install `eslint/prettier`.
 
 ## Expected consumer usage after implementation
 
 - Install only the preset package:
-  - `npm i -D @testlock-eng/angular`
+  - `npm i -D @aleks-thunder/angular`
   - (or `.../react` / `.../base`)
 - ESLint config:
-  - `extends: ["@testlock-eng/angular/eslint"]`
+  - `extends: ["@aleks-thunder/angular/eslint"]`
 - Prettier config:
-  - `module.exports = require("@testlock-eng/angular/prettier")`
+  - `module.exports = require("@aleks-thunder/angular/prettier")`
 

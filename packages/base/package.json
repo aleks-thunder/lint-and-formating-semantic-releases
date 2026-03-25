@@ -1,5 +1,5 @@
 {
-  "name": "@testlock-eng/base",
+  "name": "@aleks-thunder/base",
   "version": "0.0.0-development",
   "description": "Shared base ESLint and Prettier configuration",
   "license": "MIT",

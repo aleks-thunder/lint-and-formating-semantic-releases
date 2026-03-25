@@ -68,7 +68,7 @@ jobs:
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com
-          scope: '@testlock-eng'
+          scope: '@aleks-thunder'
           cache: npm
 
       - name: Install dependencies
@@ -97,7 +97,7 @@ jobs:
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com
-          scope: '@testlock-eng'
+          scope: '@aleks-thunder'
           cache: npm
 
       - name: Install dependencies
@@ -126,7 +126,7 @@ jobs:
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com
-          scope: '@testlock-eng'
+          scope: '@aleks-thunder'
           cache: npm
 
       - name: Install dependencies

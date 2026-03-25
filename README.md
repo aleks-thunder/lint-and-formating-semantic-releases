@@ -4,9 +4,9 @@ This repository publishes reusable lint and formatting presets as scoped package
 
 ## Packages
 
-- `@testlock-eng/base`
-- `@testlock-eng/angular`
-- `@testlock-eng/react`
+- `@aleks-thunder/base`
+- `@aleks-thunder/angular`
+- `@aleks-thunder/react`
 
 ## How release automation works
 
@@ -20,19 +20,19 @@ This repository publishes reusable lint and formatting presets as scoped package
 Install package:
 
 ```bash
-npm i -D @testlock-eng/base
+npm i -D @aleks-thunder/base
 ```
 
 ESLint (`.eslintrc.cjs`):
 
 ```js
 module.exports = {
-  extends: ["@testlock-eng/base/eslint"],
+  extends: ["@aleks-thunder/base/eslint"],
 };
 ```
 
 Prettier (`prettier.config.cjs`):
 
 ```js
-module.exports = require("@testlock-eng/base/prettier");
+module.exports = require("@aleks-thunder/base/prettier");
 ```

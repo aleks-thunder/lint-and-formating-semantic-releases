@@ -1,5 +1,5 @@
 {
-  "name": "@testlock-eng/react",
+  "name": "@aleks-thunder/react",
   "version": "0.0.0-development",
   "description": "Shared React lint and format configuration",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "prettier.js"
   ],
   "dependencies": {
-    "@testlock-eng/base": "*"
+    "@aleks-thunder/base": "*"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

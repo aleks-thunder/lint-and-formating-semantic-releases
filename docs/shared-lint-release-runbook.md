@@ -53,7 +53,7 @@ In release workflow:
 In `.npmrc`:
 
 ```text
-@testlock-eng:registry=https://npm.pkg.github.com
+@aleks-thunder:registry=https://npm.pkg.github.com
 always-auth=true
 ```
 
@@ -63,7 +63,7 @@ always-auth=true
 2. Run `Demo semantic-release dry run` and show predicted versions.
 3. Merge a PR with commit: `feat(base): tighten base eslint defaults`.
 4. Show `Release packages` workflow succeeded.
-5. Show created Git tag: `@testlock-eng/base@x.y.z`.
+5. Show created Git tag: `@aleks-thunder/base@x.y.z`.
 6. Show GitHub Release entry.
 7. In a consumer app, install package and extend config.
 
@@ -72,64 +72,64 @@ always-auth=true
 ### Base package
 
 ```bash
-npm i -D @testlock-eng/base
+npm i -D @aleks-thunder/base
 ```
 
 `.eslintrc.cjs`:
 
 ```js
 module.exports = {
-  extends: ["@testlock-eng/base/eslint"],
+  extends: ["@aleks-thunder/base/eslint"],
 };
 ```
 
 `prettier.config.cjs`:
 
 ```js
-module.exports = require("@testlock-eng/base/prettier");
+module.exports = require("@aleks-thunder/base/prettier");
 ```
 
 ### Angular package
 
 ```bash
-npm i -D @testlock-eng/angular
+npm i -D @aleks-thunder/angular
 ```
 
 `.eslintrc.cjs`:
 
 ```js
 module.exports = {
-  extends: ["@testlock-eng/angular/eslint"],
+  extends: ["@aleks-thunder/angular/eslint"],
 };
 ```
 
 `prettier.config.cjs`:
 
 ```js
-module.exports = require("@testlock-eng/angular/prettier");
+module.exports = require("@aleks-thunder/angular/prettier");
 ```
 
 ### React package
 
 ```bash
-npm i -D @testlock-eng/react
+npm i -D @aleks-thunder/react
 ```
 
 `.eslintrc.cjs`:
 
 ```js
 module.exports = {
-  extends: ["@testlock-eng/react/eslint"],
+  extends: ["@aleks-thunder/react/eslint"],
 };
 ```
 
 `prettier.config.cjs`:
 
 ```js
-module.exports = require("@testlock-eng/react/prettier");
+module.exports = require("@aleks-thunder/react/prettier");
 ```
 
-Note: `eslint` and `prettier` are installed transitively from `@testlock-eng/base`, so consumers normally install only the preset package (`@testlock-eng/react`/`@testlock-eng/angular`/`@testlock-eng/base`).
+Note: `eslint` and `prettier` are installed transitively from `@aleks-thunder/base`, so consumers normally install only the preset package (`@aleks-thunder/react`/`@aleks-thunder/angular`/`@aleks-thunder/base`).
 
 ## 8) Rollout checklist for other projects
 
