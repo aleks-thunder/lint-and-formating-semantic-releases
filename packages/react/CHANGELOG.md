@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/react-v1.0.1...react-v1.0.2) (2026-03-27)
+
+
+### Bug Fixes
+
+* **releases:** changelog test ([7c4b90e](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/7c4b90e807b8feb12ad619d791d27e36444cecab))
+
 ## [1.0.1](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/react-v1.0.0...react-v1.0.1) (2026-03-27)
 
 
