@@ -1,3 +1,10 @@
+# [2.0.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/angular-v1.0.6...angular-v2.0.0) (2026-03-27)
+
+
+### Features
+
+* **release:** test react release ([fc347e0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/fc347e06884ec92afdf932fe0fa08b237176cc60))
+
 ## [1.0.6](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/angular-v1.0.5...angular-v1.0.6) (2026-03-27)
 
 
