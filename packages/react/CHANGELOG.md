@@ -1,3 +1,5 @@
+# [2.0.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/react-v1.1.0...react-v2.0.0) (2026-03-27)
+
 # [1.1.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/react-v1.0.2...react-v1.1.0) (2026-03-27)
 
 
