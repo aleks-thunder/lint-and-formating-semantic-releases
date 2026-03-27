@@ -5,7 +5,7 @@ module.exports = {
   singleQuote: true,
   tabWidth: 2,
   useTabs: false,
-  printWidth: 120,
+  printWidth: 110,
   bracketSpacing: true,
   bracketSameLine: false,
   arrowParens: "always",
@@ -14,7 +14,7 @@ module.exports = {
   multilineArraysWrapThreshold: 2,
   plugins: [
     "prettier-plugin-multiline-arrays",
-    // Tailwind specific formatting
+    // Tailwind specific formatting.
     "prettier-plugin-tailwindcss",
   ],
 };
