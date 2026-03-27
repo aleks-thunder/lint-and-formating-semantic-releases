@@ -4,7 +4,7 @@
 
 Before publishing real shared presets, we need to validate the end-to-end release pipeline:
 
-1. Make a commit with conventional commit messages (e.g. `feat(...)`, `fix(...)`, or breaking change).
+1. Make a commit with conventional commit messages (e.g. `feat(...)`, `fix(...)`, `feat()!`).
 2. Open a PR and merge it to `main`.
 3. `semantic-release` runs in CI and (a) creates a GitHub Release and (b) publishes packages to GitHub Packages.
 4. Create a second consumer repo and install the published package(s) as dependencies.

@@ -6,7 +6,7 @@
 - **Conventional Commits → SemVer**:
   - `fix(...)` → patch
   - `feat(...)` → minor
-  - `feat(...)!` or `BREAKING CHANGE:` → major
+  - `feat(...)!` → major
 - **Monorepo-ready**: this repo uses `semantic-release-monorepo` to release only packages whose paths changed.
 - **No manual versioning**: editing `"version"` in `packages/*/package.json` does **not** drive releases; CI overwrites versions during release.
 
