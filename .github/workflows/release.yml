@@ -62,7 +62,7 @@ jobs:
 
   release-base:
     needs: changes
-    if: needs.changes.outputs.base == 'true' || needs.changes.outputs.angular == 'true' || needs.changes.outputs.react == 'true' || github.event_name == 'workflow_dispatch'
+    if: needs.changes.outputs.base == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -92,7 +92,7 @@ jobs:
 
   release-angular:
     needs: [changes, release-base]
-    if: (needs.changes.outputs.angular == 'true' || needs.changes.outputs.react == 'true' || github.event_name == 'workflow_dispatch') && needs.release-base.result != 'failure'
+    if: (needs.changes.outputs.angular == 'true' || github.event_name == 'workflow_dispatch') && needs.release-base.result != 'failure'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
