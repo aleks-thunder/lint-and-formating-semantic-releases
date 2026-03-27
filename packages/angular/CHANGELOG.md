@@ -1,3 +1,5 @@
+# [3.0.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/angular-v2.0.0...angular-v3.0.0) (2026-03-27)
+
 # [2.0.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/angular-v1.0.6...angular-v2.0.0) (2026-03-27)
 
 
