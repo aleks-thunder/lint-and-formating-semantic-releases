@@ -14,7 +14,7 @@ module.exports = {
   multilineArraysWrapThreshold: 2,
   plugins: [
     "prettier-plugin-multiline-arrays",
-    // Tailwind specific formatting.
+    // Tailwind-specific formatting (react preset).
     "prettier-plugin-tailwindcss",
   ],
 };
