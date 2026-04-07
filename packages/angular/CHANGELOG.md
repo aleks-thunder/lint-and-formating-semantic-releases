@@ -1,3 +1,10 @@
+# [4.0.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/angular-v3.0.0...angular-v4.0.0) (2026-04-07)
+
+
+### Bug Fixes
+
+* **demo:** test branch merge, base update ([d2a3dae](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/d2a3daebe43e3777aab8b9b19648091f2b3cb8b5))
+
 # [3.0.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/angular-v2.0.0...angular-v3.0.0) (2026-03-27)
 
 # [2.0.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/angular-v1.0.6...angular-v2.0.0) (2026-03-27)
