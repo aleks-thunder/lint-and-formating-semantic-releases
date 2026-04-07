@@ -1,10 +1,9 @@
-const baseConfig = require("@aleks-thunder/base/eslint");
-const tsParser = require("@typescript-eslint/parser");
-const reactPlugin = require("eslint-plugin-react");
-const hooksPlugin = require("eslint-plugin-react-hooks");
+import baseConfig from "@aleks-thunder/base/eslint";
+import reactPlugin from "eslint-plugin-react";
+import hooksPlugin from "eslint-plugin-react-hooks";
 
-module.exports = [
-  baseConfig,
+export default [
+  ...(Array.isArray(baseConfig) ? baseConfig : [baseConfig]),
   {
     languageOptions: {
       parserOptions: {

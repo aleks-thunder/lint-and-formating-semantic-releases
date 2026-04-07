@@ -1,5 +1,7 @@
-module.exports = {
-  ...require("@aleks-thunder/base/prettier"),
+import basePrettier from "@aleks-thunder/base/prettier";
+
+export default {
+  ...basePrettier,
   tabWidth: 2,
   useTabs: false,
   singleQuote: true,
@@ -21,4 +23,3 @@ module.exports = {
     },
   ],
 };
-//

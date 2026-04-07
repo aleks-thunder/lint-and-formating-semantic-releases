@@ -1,5 +1,7 @@
-module.exports = {
-  ...require("@aleks-thunder/base/prettier"),
+import basePrettier from "@aleks-thunder/base/prettier";
+
+export default {
+  ...basePrettier,
   semi: true,
   trailingComma: "es5",
   singleQuote: true,
