@@ -1,11 +1,19 @@
-const baseConfig = require("@aleks-thunder/base/eslint");
-const angular = require("angular-eslint");
-const prettierPlugin = require("eslint-plugin-prettier");
+import baseConfig from "@aleks-thunder/base/eslint";
+import angular from "angular-eslint";
+import prettierPlugin from "eslint-plugin-prettier";
 
-module.exports = [
-  baseConfig,
+function scopeAngularTemplateConfigs(configs) {
+  return configs.map((c) => {
+    if (!c || typeof c !== "object") return c;
+    if (c.files) return c;
+    return { ...c, files: ["**/*.html"] };
+  });
+}
+
+export default [
+  ...(Array.isArray(baseConfig) ? baseConfig : [baseConfig]),
   ...angular.configs.tsRecommended,
-  ...angular.configs.templateRecommended,
+  ...scopeAngularTemplateConfigs(angular.configs.templateRecommended),
   {
     files: ["**/*.ts"],
     processor: angular.processInlineTemplates,

@@ -1,16 +1,14 @@
-const eslint = require("@eslint/js");
-const unusedImports = require("eslint-plugin-unused-imports");
-const prettierPlugin = require("eslint-plugin-prettier");
-const simpleImportSort = require("eslint-plugin-simple-import-sort");
-const tsPlugin = require("@typescript-eslint/eslint-plugin");
-const prettierConfig = require("eslint-config-prettier");
-const tsParser = require("@typescript-eslint/parser");
-const eslintConfigPrettier = require("eslint-config-prettier");
+import eslint from "@eslint/js";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import eslintConfigPrettier from "eslint-config-prettier";
+import prettierPlugin from "eslint-plugin-prettier";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import unusedImports from "eslint-plugin-unused-imports";
 
-module.exports = [
+export default [
   eslint.configs.recommended,
   eslintConfigPrettier,
-  prettierConfig,
   {
     files: ["**/*.{ts,tsx,js,jsx}"],
     ignores: [

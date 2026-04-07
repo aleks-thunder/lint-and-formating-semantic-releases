@@ -6,17 +6,19 @@ Install package:
 npm i -D @aleks-thunder/base
 ```
 
-ESLint (`.eslintrc.cjs`):
+ESLint (`eslint.config.js` or `eslint.config.mjs`):
 
 ```js
-module.exports = {
-  extends: ["@aleks-thunder/base/eslint"],
-};
+import baseEslint from "@aleks-thunder/base/eslint";
+
+export default baseEslint;
 ```
 
-Prettier (`prettier.config.cjs`):
+Prettier (`prettier.config.js` or `prettier.config.mjs`):
 
 ```js
-module.exports = require("@aleks-thunder/base/prettier");
+import basePrettier from "@aleks-thunder/base/prettier";
+
+export default basePrettier;
 ```
 
