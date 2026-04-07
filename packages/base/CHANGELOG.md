@@ -1,3 +1,5 @@
+# [4.0.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/base-v3.0.1...base-v4.0.0) (2026-04-07)
+
 ## [3.0.1](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/base-v3.0.0...base-v3.0.1) (2026-03-27)
 
 
