@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/base-v4.0.0...base-v5.0.0) (2026-04-07)
+
+
+### Features
+
+* test breaking change with blank line ([4f174e2](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/4f174e2fb3f0d97727cb6cad8ef4f3fc7176537b))
+
+
+### BREAKING CHANGES
+
+* test
+
 # [4.0.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/base-v3.0.1...base-v4.0.0) (2026-04-07)
 
 ## [3.0.1](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/base-v3.0.0...base-v3.0.1) (2026-03-27)
