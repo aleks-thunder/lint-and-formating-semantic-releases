@@ -4,7 +4,7 @@
 
 Before publishing real shared presets, we need to validate the end-to-end release pipeline:
 
-1. Make a commit with conventional commit messages (e.g. `feat(...)`, `fix(...)`, `feat()!`).
+1. Make a commit with conventional commit messages (e.g. `feat(...)`, `fix(...)`, `feat()!`, `breaking(...)`, or `feat: ...` with a footer `BREAKING CHANGE: ...` after a blank line — not `BREAKING CHANGE:` as the only line; see [rnd-semantic-release.md](./rnd-semantic-release.md)).
 2. Open a PR and merge it to `main`.
 3. `semantic-release` runs in CI and (a) creates a GitHub Release and (b) publishes packages to GitHub Packages.
 4. Create a second consumer repo and install the published package(s) as dependencies.
@@ -49,6 +49,28 @@ This dummy repo proves that:
 
 **Decision for this project:** `@aleks-thunder/angular` and `@aleks-thunder/react` depend on `@aleks-thunder/base` using a portable range (for demo simplicity: `"*"`).
 
+#### Additional R&D: local development without release
+
+**Goal:** test `base -> angular/react -> consumer` changes locally before publishing.
+
+**Recommended workflow (tested):**
+
+1. In consumer `package.json`, set preset package to local path:
+   - `@aleks-thunder/angular`: `file:../../Lint-and-formating-semantic-releases/packages/angular`
+   - `@aleks-thunder/react`: `file:../../Lint-and-formating-semantic-releases/packages/react`
+2. Add override for base:
+   - `"overrides": { "@aleks-thunder/base": "file:../../Lint-and-formating-semantic-releases/packages/base" }`
+3. Run `npm install` in consumer.
+4. Edit preset files locally in this repo and re-run:
+   - `npm install` (consumer) + `npx eslint ...` / app lint command.
+
+**Why this works:** consumer loads local preset package(s), and their `@aleks-thunder/base` dependency resolves to local `packages/base` via `overrides`.
+
+**Trade-offs:**
+- Fast local iteration, no release needed.
+- `file:` paths are local-dev only; keep CI/release flows on registry versions.
+- If changes seem stale (due to ESLint cache), run `npm i --force` in consumer and restart editor `Developer: Reload Window`.
+
 ## Final chosen strategy (applies to this repository)
 
 ### Preset packages and exports
@@ -72,7 +94,7 @@ This dummy repo proves that:
   - `npm i -D @aleks-thunder/angular`
   - (or `.../react` / `.../base`)
 - ESLint config:
-  - `extends: ["@aleks-thunder/angular/eslint"]`
+  - flat config: `import` from `@aleks-thunder/angular/eslint` (see [consumer.md](./consumer.md)).
 - Prettier config:
-  - `module.exports = require("@aleks-thunder/angular/prettier")`
+  - `import` from `@aleks-thunder/angular/prettier` (see [consumer.md](./consumer.md)).
 

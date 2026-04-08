@@ -6,9 +6,16 @@
 - **Conventional Commits → SemVer**:
   - `fix(...)` → patch
   - `feat(...)` → minor
-  - `feat(...)!` → major
-- **Monorepo-ready**: this repo uses `semantic-release-monorepo` to release only packages whose paths changed.
-- **No manual versioning**: editing `"version"` in `packages/*/package.json` does **not** drive releases; CI overwrites versions during release.
+  - **Major (breaking API)** — pick one:
+    - `feat(...)!:` or `feat(scope)!:` in the **subject** (the `!` marks breaking), or
+    - `breaking(...):` in the **subject** (dedicated type; no `!` needed), or
+    - a valid subject (`feat:`, `fix:`, …) plus a **footer** after a blank line: `BREAKING CHANGE: ...` (the keyword must **not** be the whole first line; see below).
+
+```text
+feat: rename public export paths
+
+BREAKING CHANGE: consumers must update imports from old entry points.
+```
 
 ## How it works in this repo (what to expect)
 
@@ -30,7 +37,6 @@
 - You must provide tokens locally (CI injects these automatically):
   - `GITHUB_TOKEN` (or `GH_TOKEN`) for GitHub API access
   - `NPM_TOKEN` / `NODE_AUTH_TOKEN` for registry auth (GitHub Packages)
-
   run:
   - ssh-agent
   - in cmd $env:GITHUB*TOKEN="github_pat*###"
@@ -41,7 +47,7 @@
 
 - `[.releaserc.json](../.releaserc.json)`
   - `extends: "semantic-release-monorepo"` enables monorepo path-scoped releases.
-  - `@semantic-release/commit-analyzer` uses preset `conventionalcommits` so `feat(scope)!:` in the subject is treated as **major** (not minor).
+  - `@semantic-release/commit-analyzer` uses preset `conventionalcommits`. Major bumps come from `feat!:` / `feat(scope)!:`, from footer `BREAKING CHANGE:` (after a valid subject + blank line), or from subject type `breaking:` (see `releaseRules` in `.releaserc.json`).
   - Plugins used:
     - `@semantic-release/commit-analyzer`
     - `@semantic-release/release-notes-generator`
