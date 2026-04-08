@@ -29,15 +29,15 @@ This dummy repo proves that:
 
 **Decision for this project:** use `dependencies` in the shared preset packages to make the consumer onboarding minimal.
 
-### 2) `eslint.js` (module export) vs `.eslintrc.*` (config file)
+### 2) preset module entrypoints vs consumer config file names
 
-- `eslint.js` (JS module)
+- preset module entrypoints (`@aleks-thunder/*/eslint`, `@aleks-thunder/*/prettier`)
   - Benefit: the package exposes a stable import target, and it aligns well with `package.json` `exports`.
   - Benefit: consumers can reliably extend the preset by referencing your exported module.
 - `.eslintrc.*` inside the published package
   - Cost: config-file discovery and resolution can be brittle once published (path expectations, legacy vs modern config loading).
 
-**Decision for this project:** ship JS presets (`eslint.js`, `prettier.js`) and expose them via `package.json` `exports`.
+**Decision for this project:** expose preset module entrypoints via `package.json` `exports`, and use modern consumer config files: `eslint.config.js` and `prettier.config.js`.
 
 ### 3) `file:` links vs real semver dependencies after publishing
 
@@ -76,9 +76,9 @@ This dummy repo proves that:
 ### Preset packages and exports
 
 - `@aleks-thunder/base`
-  - Exposes `eslint.js` and `prettier.js` via `packages/base/package.json` `exports`.
+  - Exposes preset module entrypoints via `packages/base/package.json` `exports`.
 - `@aleks-thunder/angular` and `@aleks-thunder/react`
-  - Expose their own `eslint.js` and `prettier.js` (and extend `@aleks-thunder/base` presets).
+  - Expose their own preset module entrypoints (and extend `@aleks-thunder/base` presets).
 
 ### Dependency model
 
@@ -94,7 +94,7 @@ This dummy repo proves that:
   - `npm i -D @aleks-thunder/angular`
   - (or `.../react` / `.../base`)
 - ESLint config:
-  - flat config: `import` from `@aleks-thunder/angular/eslint` (see [consumer.md](./consumer.md)).
+  - `eslint.config.js`: `import` from `@aleks-thunder/angular/eslint` (see [consumer.md](./consumer.md)).
 - Prettier config:
-  - `import` from `@aleks-thunder/angular/prettier` (see [consumer.md](./consumer.md)).
+  - `prettier.config.js`: `import` from `@aleks-thunder/angular/prettier` (see [consumer.md](./consumer.md)).
 
