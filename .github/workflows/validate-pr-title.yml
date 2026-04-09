@@ -1,4 +1,4 @@
-name: PR title lint
+name: Validate PR title
 
 on:
   pull_request_target:
