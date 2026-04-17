@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/react-v5.0.1...react-v5.1.0) (2026-04-17)
+
+
+### Features
+
+* **test:** test feat release ([881cfb4](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/881cfb45ef21e539a1937b715039f8e1d0c27551))
+
 ## [5.0.1](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/react-v5.0.0...react-v5.0.1) (2026-04-17)
 
 
