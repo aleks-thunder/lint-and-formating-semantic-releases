@@ -1,3 +1,12 @@
+# [6.0.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/angular-v5.0.2...angular-v6.0.0) (2026-04-17)
+
+
+### Bug Fixes
+
+* **test:** new release ylm ([4ef5cb0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/4ef5cb0c8e563eb3ab7d6f33df9137b51708c8a2))
+* **test:** new release ylm ([16b192f](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/16b192f56fd34ec734c1a6ecc00331bb99cb1a6c))
+* **test:** test fix release ([2490993](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/2490993238468713450825aaad36ee9963c824f0))
+
 ## [5.0.3](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/angular-v5.0.2...angular-v5.0.3) (2026-04-17)
 
 
