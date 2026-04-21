@@ -1,3 +1,14 @@
+## [6.1.3](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/base-v6.1.2...base-v6.1.3) (2026-04-21)
+
+
+### Bug Fixes
+
+* **test:** squash1 ([5ac6c9f](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/5ac6c9ff6146af5e0e19cf355552260c7bab5530))
+* **test:** squash1 ([78b4f2c](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/78b4f2cbb4bb1ad59789e3bf84d5f12abd13ce2e))
+* **test:** squash1 ([b3ed1fe](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/b3ed1fea77936032ef4716f34d9fb54193ca4f9c))
+* **test:** squash3 angular ([42139f7](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/42139f789169d923137bba70478bcba516ca5b7c))
+* **test:** squash3 react ([126fbcc](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/126fbcc51046c85f000c9131df299bbe152c0bac))
+
 ## [6.1.2](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/base-v6.1.1...base-v6.1.2) (2026-04-21)
 
 
