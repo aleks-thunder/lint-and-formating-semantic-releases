@@ -2,6 +2,11 @@ name: Release packages
 
 on:
   push:
+    paths:
+      - "packages/base/**"
+      - "packages/angular/**"
+      - "packages/react/**"
+      - "package.json"
     branches:
       - main
   workflow_dispatch:
@@ -16,52 +21,11 @@ concurrency:
   group: monorepo-release-main
   cancel-in-progress: false
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
-  changes:
-    runs-on: ubuntu-latest
-    outputs:
-      base: ${{ steps.filter.outputs.base }}
-      angular: ${{ steps.filter.outputs.angular }}
-      react: ${{ steps.filter.outputs.react }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
-
-      - name: Detect changed package paths
-        id: filter
-        uses: dorny/paths-filter@v3
-        with:
-          filters: |
-            base:
-              - 'packages/base/**'
-              - '.releaserc.json'
-              - 'package.json'
-              - 'package-lock.json'
-              - '.npmrc'
-            angular:
-              - 'packages/angular/**'
-              - '.releaserc.json'
-              - 'package.json'
-              - 'package-lock.json'
-              - '.npmrc'
-            react:
-              - 'packages/react/**'
-              - '.releaserc.json'
-              - 'package.json'
-              - 'package-lock.json'
-              - '.npmrc'
-
-      - name: Report changed packages
-        run: |
-          echo "base=${{ steps.filter.outputs.base }}"
-          echo "angular=${{ steps.filter.outputs.angular }}"
-          echo "react=${{ steps.filter.outputs.react }}"
-
   release-packages:
-    needs: changes
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -75,35 +39,39 @@ jobs:
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com
-          scope: '@aleks-thunder'
+          scope: "@aleks-thunder"
           cache: npm
 
       - name: Install dependencies
         run: npm install
 
+      - name: Detect changed packages (native git)
+        id: changed
+        if: github.event_name != 'workflow_dispatch'
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE_SHA="${{ github.event.before }}"
+          HEAD_SHA="${{ github.sha }}"
+          echo "Comparing: $BASE_SHA..$HEAD_SHA"
+          CHANGED="$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")"
+          echo "$CHANGED"
+
+          if echo "$CHANGED" | grep -q '^packages/base/'; then echo "base=true" >> "$GITHUB_OUTPUT"; else echo "base=false" >> "$GITHUB_OUTPUT"; fi
+          if echo "$CHANGED" | grep -q '^packages/angular/'; then echo "angular=true" >> "$GITHUB_OUTPUT"; else echo "angular=false" >> "$GITHUB_OUTPUT"; fi
+          if echo "$CHANGED" | grep -q '^packages/react/'; then echo "react=true" >> "$GITHUB_OUTPUT"; else echo "react=false" >> "$GITHUB_OUTPUT"; fi
+
       - name: Release base
-        if: needs.changes.outputs.base == 'true' || github.event_name == 'workflow_dispatch'
+        if: steps.changed.outputs.base == 'true' || github.event_name == 'workflow_dispatch'
         working-directory: packages/base
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node ../../node_modules/semantic-release/bin/semantic-release.js
+        run: npx semantic-release
 
       - name: Release angular
-        if: needs.changes.outputs.angular == 'true' || github.event_name == 'workflow_dispatch'
+        if: steps.changed.outputs.angular == 'true' || github.event_name == 'workflow_dispatch'
         working-directory: packages/angular
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node ../../node_modules/semantic-release/bin/semantic-release.js
+        run: npx semantic-release
 
       - name: Release react
-        if: needs.changes.outputs.react == 'true' || github.event_name == 'workflow_dispatch'
+        if: steps.changed.outputs.react == 'true' || github.event_name == 'workflow_dispatch'
         working-directory: packages/react
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node ../../node_modules/semantic-release/bin/semantic-release.js
+        run: npx semantic-release

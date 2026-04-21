@@ -1,20 +1,12 @@
-module.exports = {
-  ...require("@aleks-thunder/base/prettier"),
-  semi: true,
+import basePrettier from "@aleks-thunder/base/prettier";
+
+/** React preset: Tailwind class sorting + Prettier options that differ from base. */
+export default {
+  ...basePrettier,
   trailingComma: "es5",
-  singleQuote: true,
-  tabWidth: 2,
-  useTabs: false,
-  printWidth: 110,
-  bracketSpacing: true,
-  bracketSameLine: false,
   arrowParens: "always",
   endOfLine: "lf",
   singleAttributePerLine: true,
-  multilineArraysWrapThreshold: 2,
-  plugins: [
-    "prettier-plugin-multiline-arrays",
-    // Tailwind specific formatting.
-    "prettier-plugin-tailwindcss",
-  ],
+  plugins: ["prettier-plugin-tailwindcss"],
 };
+// test commit

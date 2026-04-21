@@ -1,16 +1,7 @@
-module.exports = {
-  ...require("@aleks-thunder/base/prettier"),
-  tabWidth: 2,
-  useTabs: false,
-  singleQuote: true,
-  semi: true,
-  bracketSpacing: true,
-  arrowParens: "avoid",
-  trailingComma: "all",
-  bracketSameLine: false,
-  printWidth: 120,
-  plugins: ["prettier-plugin-multiline-arrays"],
-  multilineArraysWrapThreshold: 2,
+import basePrettier from "@aleks-thunder/base/prettier";
+
+export default {
+  ...basePrettier,
   overrides: [
     {
       files: "*.html",
@@ -21,3 +12,4 @@ module.exports = {
     },
   ],
 };
+// test commit
