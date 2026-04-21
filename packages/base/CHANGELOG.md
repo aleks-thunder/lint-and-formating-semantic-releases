@@ -1,3 +1,10 @@
+# [6.2.0](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/base-v6.1.4...base-v6.2.0) (2026-04-21)
+
+
+### Features
+
+* **lint:** base ts/no-unsued-vars allowed patern ([5c5a0be](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/5c5a0be8a96ad02c4932f579571951ea4fd74589))
+
 ## [6.1.4](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/base-v6.1.3...base-v6.1.4) (2026-04-21)
 
 
