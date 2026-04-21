@@ -1,3 +1,10 @@
+## [6.2.2](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/base-v6.2.1...base-v6.2.2) (2026-04-21)
+
+
+### Bug Fixes
+
+* **test:** remove no-unused-vars: off ([7199232](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/commit/7199232a863bf6a263507635e473b2c66b1fa3d1))
+
 ## [6.2.1](https://github.com/aleks-thunder/lint-and-formating-semantic-releases/compare/base-v6.2.0...base-v6.2.1) (2026-04-21)
 
 
