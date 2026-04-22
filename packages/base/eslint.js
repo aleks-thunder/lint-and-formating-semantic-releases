@@ -39,8 +39,8 @@ export default defineConfig({
           "private-instance-field",
           // Constructor (AFTER properties)
           "constructor",
-          // Lifecycle hooks (e.g. ngOnInit, ngOnChanges)
-          "public-instance-method",
+          // Lifecycle hooks
+          "public-instance-method", // ngOnInit, ngOnChanges, etc.
           // Public methods
           "public-static-method",
           // Private/protected methods
@@ -61,6 +61,15 @@ export default defineConfig({
         format: ["PascalCase", "UPPER_CASE"],
       },
     ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        vars: "all",
+        varsIgnorePattern: "^_",
+        args: "after-used",
+        argsIgnorePattern: "^_",
+      },
+    ],
     "lines-between-class-members": [
       "error",
       {
@@ -79,15 +88,6 @@ export default defineConfig({
     "no-duplicate-imports": "error",
     "object-shorthand": "warn",
     "unused-imports/no-unused-imports": "error",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        vars: "all",
-        varsIgnorePattern: "^_",
-        args: "after-used",
-        argsIgnorePattern: "^_",
-      },
-    ],
     "no-console": ["warn", { allow: ["warn", "error"] }],
   },
 });
