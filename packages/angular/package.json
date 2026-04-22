@@ -21,7 +21,7 @@
   "dependencies": {
     "@aleks-thunder/base": "*",
     "@eslint/js": "9.39.4",
-    "angular-eslint": "20.7.0",
+    "angular-eslint": "21.3.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.5",
     "eslint-plugin-simple-import-sort": "12.1.1",
